@@ -202,9 +202,9 @@ class RouterRestClient:
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description='')
-	parser.add_argument('-t', '--target', type=str,  help='IP of the TL device')
+	parser.add_argument('-t', '--target', type=str,  help='IP of the Router')
 	parser.add_argument('-p', '--password', type=str, metavar='password',
-						help='Password of the TL-WPA4220 Web interface (default: admin)', default='admin')
+						help='Password of the Router Web interface (default: admin)', default='admin')
 	# 
 	args = parser.parse_args()
 	restClient = RouterRestClient(args.target, args.password)
