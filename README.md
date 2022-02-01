@@ -6,11 +6,12 @@ It has encrypted API so it is impossible to directly call and use it rest api.
 I needed to check internet conectivity from a host within a local network  and reboot the router since it has a tendency to not get dynamic ip after power outeges.
 
 I got inspired by the work of Oriol Castejón https://the-hyperbolic.com/posts/hacking-the-tlwpa4220-part-3/
-Archer AX21 is newer then the router used in the mentioned post. It uses two RSA keys and one AES compared to  the previous one mentioned in the post.
+
+Archer AX21 is newer than the router used in the mentioned post. This one uses two RSA keys and one AES compared to  the previous one mentioned in the post.
 
 
 
-##Basic Usage
+## Basic Usage
 ```
 restClient = RouterRestClient('192.168.0.1', 'router password')
 restClient.get_rsa_keys()
