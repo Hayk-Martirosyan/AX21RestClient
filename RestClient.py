@@ -115,7 +115,7 @@ class RouterRestClient:
 		# print(data)
 		
 
-		r = self.session.post(url, data=data, headers=headers)
+		r = self.session.post(url, data=data)
 		print(f'Status code = {r.status_code}')
 
 		data= r.json()
