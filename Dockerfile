@@ -13,5 +13,5 @@ RUN pip3 install requests
 RUN pip3 install pycryptodome
 RUN apt-get install iputils-ping -y
 
-ADD RestClient.py
-ADD checkInternet.sh
+ADD RestClient.py RestClient.py
+ADD checkInternet.sh checkInternet.sh

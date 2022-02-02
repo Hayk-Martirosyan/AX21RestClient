@@ -19,3 +19,18 @@ restClient.login()
 restClient.reboot()
 restClient.logout()
 ```
+
+
+## Use with docker
+
+### To build just run a command
+```
+./build.sh
+```
+
+### To execute
+```
+docker run tplink-api:1.0 bash -c "./checkInternet.sh 8.8.8.8 192.168.0.1 password"
+```
+
+
