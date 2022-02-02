@@ -202,5 +202,5 @@ if __name__ == '__main__':
 	restClient = RouterRestClient(args.target, args.password)
 	restClient.get_rsa_keys()
 	restClient.login()
-	# restClient.reboot()
+	restClient.reboot()
 	restClient.logout()
