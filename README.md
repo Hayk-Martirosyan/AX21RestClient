@@ -33,4 +33,51 @@ restClient.logout()
 docker run tplink-api:1.0 bash -c "./checkInternet.sh 8.8.8.8 192.168.0.1 password"
 ```
 
+## To Make an API call from command line
+```
+#status?form=all   operation=read
+python3 RestClient.py -p router_password -t 192.168.0.1 -path status -f all -o read
+```
+## API and parameter value samples (list is not complete)
+```
 
+URL PostData
+firmware?form=upgrade   operation=read
+cloud_account?form=check_upgrade   operation=read
+system?form=sysmode   operation=read
+firmware?form=upgrade   operation=write&upgraded=false
+time?form=settings   operation=read
+network?form=wan_ipv4_status   operation=read
+network?form=lan_ipv4   operation=read
+network?form=lan_agg   operation=read
+ddns?form=provider   operation=read
+dhcps?form=setting   operation=read
+status?form=internet   operation=read
+access_control?form=black_devices   operation=load
+access_control?form=enable   operation=read
+access_control?form=mode   operation=read
+cloud_account?form=get_deviceInfo   operation=read
+wireless?form=wireless_2g   operation=read
+wireless?form=wireless_5g   operation=read
+wireless?form=guest_2g   operation=read
+wireless?form=guest_5g   operation=read
+status?form=router   operation=read
+status?form=all   operation=read
+smart_network?form=game_accelerator   operation=loadDevice
+onemesh_network?form=mesh_sclient_list_all   operation=read
+cloud_account?form=auto_update_remind   operation=read
+status?form=internet   operation=read
+time?form=settings   operation=read
+firmware?form=auto_upgrade   operation=read
+time?form=settings   operation=read
+firmware?form=upgrade   operation=read
+cloud_account?form=cloud_upgrade   operation=read
+status?form=all   operation=read
+quick_setup?form=quick_setup   operation=read
+cloud_account?form=remind   operation=read
+cloud_account?form=check_upgrade   operation=read
+status?form=internet   operation=read
+status?form=all   operation=read
+smart_network?form=game_accelerator   operation=loadDevice
+onemesh_network?form=mesh_sclient_list_all   operation=read
+```

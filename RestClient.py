@@ -144,7 +144,7 @@ class RouterRestClient:
 			
 
 	def logout(self):
-		data = self.apiCall("logout", "read")
+		data = self.apiCall("system", "logout", "read")
 		self.stok = ''
 		self.session = None
 		if not data.get("success"):
@@ -152,14 +152,54 @@ class RouterRestClient:
 
 		print("[+] Logout")
 
-	def apiCall(self, form, operation):
-		data = self.send_encrypted_request(f"/cgi-bin/luci/;stok={self.stok}/admin/system?form={form}", "operation={operation}")
+
+#firmware?form=upgrade   operation=read
+#cloud_account?form=check_upgrade   operation=read
+#system?form=sysmode   operation=read
+#firmware?form=upgrade   operation=write&upgraded=false
+#time?form=settings   operation=read
+#network?form=wan_ipv4_status   operation=read
+#network?form=lan_ipv4   operation=read
+#network?form=lan_agg   operation=read
+#ddns?form=provider   operation=read
+#dhcps?form=setting   operation=read
+#status?form=internet   operation=read
+#access_control?form=black_devices   operation=load
+#access_control?form=enable   operation=read
+#access_control?form=mode   operation=read
+#cloud_account?form=get_deviceInfo   operation=read
+#wireless?form=wireless_2g   operation=read
+#wireless?form=wireless_5g   operation=read
+#wireless?form=guest_2g   operation=read
+#wireless?form=guest_5g   operation=read
+#status?form=router   operation=read
+#status?form=all   operation=read
+#smart_network?form=game_accelerator   operation=loadDevice
+#onemesh_network?form=mesh_sclient_list_all   operation=read
+#cloud_account?form=auto_update_remind   operation=read
+#status?form=internet   operation=read
+#time?form=settings   operation=read
+#firmware?form=auto_upgrade   operation=read
+#time?form=settings   operation=read
+#firmware?form=upgrade   operation=read
+#cloud_account?form=cloud_upgrade   operation=read
+#status?form=all   operation=read
+#quick_setup?form=quick_setup   operation=read
+#cloud_account?form=remind   operation=read
+#cloud_account?form=check_upgrade   operation=read
+#status?form=internet   operation=read
+#status?form=all   operation=read
+#smart_network?form=game_accelerator   operation=loadDevice
+#onemesh_network?form=mesh_sclient_list_all   operation=read
+
+	def apiCall(self, path, form, operation):
+		data = self.send_encrypted_request(f"/cgi-bin/luci/;stok={self.stok}/admin/{path}?form={form}", "operation={operation}")
 		if not data.get("success"):
 			raise Exception("logout failed!")
 		return data
 
 	def reboot(self):
-		data = self.apiCall("reboot", "reboot")
+		data = self.apiCall("system", "reboot", "reboot")
 
 
 	
@@ -197,10 +237,17 @@ if __name__ == '__main__':
 	parser.add_argument('-t', '--target', type=str,  help='IP of the Router')
 	parser.add_argument('-p', '--password', type=str, metavar='password',
 						help='Password of the Router Web interface (default: admin)', default='admin')
+	parser.add_argument('-path', '--path', type=str, 
+						help='API call parameter, path')
+	parser.add_argument('-f', '--form', type=str, 
+						help='API call parameter, form')
+	parser.add_argument('-o', '--operation', type=str, 
+						help='API call parameter, operation')
 	# 
 	args = parser.parse_args()
 	restClient = RouterRestClient(args.target, args.password)
 	restClient.get_rsa_keys()
 	restClient.login()
-	restClient.reboot()
+	#restClient.reboot()
+	restClient.apiCall(args.path, args.form, args.operation)
 	restClient.logout()
