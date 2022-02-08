@@ -81,3 +81,8 @@ status?form=all   operation=read
 smart_network?form=game_accelerator   operation=loadDevice
 onemesh_network?form=mesh_sclient_list_all   operation=read
 ```
+## Tested on the following firmware
+```
+Firmware Version: 1.3.2 Build 20210901 rel.68864(5553)
+Hardware Version: Archer AX21 v1.20
+```
