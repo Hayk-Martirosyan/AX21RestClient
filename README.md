@@ -1,6 +1,6 @@
 # AX21RestClient
 
-With the help of this project you can do rest calls to your TP Link AX21/1800 router.
+With the help of this project you can do rest calls to your TP Link Archer AX21/1800 router.
 It has encrypted API so it is impossible to directly call and use it rest api.
 
 I needed to check internet conectivity from a host within a local network  and reboot the router since it has a tendency to not get dynamic ip after power outeges.
